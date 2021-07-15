@@ -1,20 +1,31 @@
 {{!-- {{>post-details post}}
 
-<div class= "m-5 p-2">
-<h1 class= "text-center">{{post.title}}</h1>
+<div class="m-5 p-2">
+  <h1 class="text-center">{{post.title}}</h1>
   <p class="card-body">{{post.body}}</p>
-  <h6 class= "text-center">Written by: {{user.username}}</h6>
-  <br>
-  <br>
-  <br>
-  <hr size="10">
-</div> --}}
+  <h6 class="text-center">Written by: {{user.username}}</h6>
+  <br />
+  <br />
+  <br />
+  <hr size="10" />
+</div>
+--}}
 
 <main class="container p-0 col-12">
-      <row class="row col-12 justify-content-center">
+  <row class="row col-12 justify-content-center">
+    {{>post-details post}}
+    {{#if loggedIn}}
+    <form class="comment-form text-center">
+      <div id="comment-input">
+        <textarea name="comment-body"></textarea>
+      </div>
 
-      
-        {{>post-details post}}
-
-      </row> 
-    </main>
+      <div id="comment-submit">
+        <button type="submit">Comment</button>
+      </div>
+    </form>
+    {{> comments post.comments}}
+    <script src="/js/comment.js"></script>
+    {{/if}}
+  </row>
+</main>

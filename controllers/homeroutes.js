@@ -39,7 +39,7 @@ router.get('/post/:id', async (req, res) => {
     if (dbPostData) {
       const post = dbPostData.get({ plain: true})
       res.render('one-post', {post 
-        //, loggedIn: req.session.loggedIn
+        , loggedIn: req.session.loggedIn
       })
       
     }else{res.status(404).json({message: 'Post-ID Not Found'}).end()}
