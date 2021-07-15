@@ -1,13 +1,41 @@
 const router = require('express').Router();
-const {Post} = require('../../models')
+const {Post, User, Comment} = require('../../models')
 
 router.get('/', async (req, res) => {
-    try {
-        const postData = await Post.findAll()
-        res.status(200).json(postData)
-    } catch (err) {
-        res.status(500).json(err)
-    }
+  await Post.findAll({
+    // attributes: ["id", "title", "body"],
+    include: [
+      {all: true}
+      //   model: Comment,
+      //   attributes: ["id", "text", "post_id", "user_id"],
+      //   include: {
+      //     model: User,
+      //     attributes: ["username"],
+      //   },
+      // },
+      // {
+      //   model: User,
+      //   attributes: ["username"],
+      // },
+    ],
+  })
+  .then((dbPostData) => {
+    const post = dbPostData.map((post) => post.get({ plain: true }));
+    res.render("homepage", {
+      post,
+      // loggedIn: req.session.loggedIn,
+    });
+  })
+  .catch((err) => {
+    console.log(err);
+    res.status(500).json(err);
+  });
+    // try {
+    //     const postData = await Post.findAll()
+    //     res.status(200).json(postData)
+    // } catch (err) {
+    //     res.status(500).json(err)
+    // }
 })
 
 router.get("/:id", async (req, res) => {
