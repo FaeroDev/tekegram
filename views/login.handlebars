@@ -1,0 +1,80 @@
+<div class="row login-row justify-content-center">
+
+  <form
+    class="row justify-content-center col-12 col-lg-5 border border-secondary m-0 rounded bg-med-gray view-height"
+    id="login-form"
+  >
+    <h1 class="text-center">LOGIN</h1>
+    <div>
+      <label for="login-email" class="form-label">EMAIL:</label>
+      <input
+        type="text"
+        class="form-control"
+        id="login-email"
+        placeholder='enter email - i.e. "email@example.com"'
+        required
+      />
+    </div>
+    <div>
+      <label for="validationDefault02" class="form-label">PASSWORD:</label>
+      <input
+        type="password"
+        class="form-control"
+        id="login-password"
+        placeholder="enter password"
+        required
+      />
+    </div>
+    <div class="col-12 m-1 text-center">
+      <button
+        class="btn btn-primary"
+        type="submit"
+        id="login-btn"
+      >Login</button>
+    </div>
+  </form>
+
+  <form
+    class="row g-3 justify-content-center col-12 col-lg-5 border border-secondary m-0 rounded bg-med-gray view-height"
+    id="signup-form"
+  >
+    <h1 class="text-center">SIGN UP</h1>
+    <div>
+      <label for="signup-username" class="form-label">USERNAME</label>
+      <input
+        type="text"
+        class="form-control"
+        id="signup-username"
+        aria-describedby="inputGroupPrepend2"
+        required
+      />
+    </div>
+
+    <div>
+      <label for="signup-email" class="form-label">EMAIL:</label>
+      <input
+        type="text"
+        class="form-control"
+        id="signup-email"
+        placeholder='enter email - i.e. "email@example.com"'
+        required
+      />
+    </div>
+    <div>
+      <label for="validationDefault02" class="form-label">PASSWORD:</label>
+      <input
+        type="password"
+        class="form-control"
+        id="signup-password"
+        placeholder="enter password"
+        required
+      />
+    </div>
+    <div class="col-12 m-1 text-center">
+      <button class="btn btn-primary" type="submit" id="signUp-btn">Sign up</button>
+    </div>
+  </form>
+
+</div>
+<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+<script src="/js/login.js"></script>

@@ -1,13 +1,93 @@
-<!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    TEST MAIN VIEW
-    {{{body}}}
-</body>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>TEKEGRAM</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" type="text/css" href="/css/jumbo-style.css" />
+  </head>
+
+  <body>
+    <header class="jumbotron bg-dark p-5 text-white shadow bg-gradient">
+      <h1>TEKEGRAM</h1>
+    </header>
+
+    <nav class="navbar navbar-expand-md navbar-light bg-secondary">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="#">TEKEGRAM</a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarTogglerDemo02"
+          aria-controls="navbarTogglerDemo02"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <li class="nav-item">
+              <a id="homeBtn"class="nav-link active" aria-current="page" href="/">Home</a>
+            </li>
+            {{#if loggedIn}}
+            <li class="nav-item">
+              <a class="nav-link" href="/" id="logout-btn">Logout</a>
+              <a class="nav-link" href="/dashboard">Dashboard</a>
+
+            </li>
+            {{else}}
+            
+                        <li class="nav-item">
+              <a class="nav-link" href="/login">Login</a>
+                      <a class="nav-link" href="/dashboard">Dashboard</a> 
+                      {{!-- above line is ytemporary --}}
+
+            </li>
+
+            {{/if}}
+                      {{#if loggedIn}}
+            <p><strong>LOGGEDIN</strong></p>
+
+            {{else}}
+            <p><strong>LOGGEDOUT</strong></p>
+            {{/if}}
+
+          </ul>
+          <!-- <form class="d-flex">
+            <input
+              class="form-control me-2"
+              type="search"
+              placeholder="Search"
+              aria-label="Search"
+            />
+            <button class="btn btn-outline-info" type="submit">Search</button>
+          </form> -->
+        </div>
+      </div>
+    </nav>
+    <div class="bg-dark m-0 p-0">
+      {{{body}}}
+    </div>
+
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4"
+      crossorigin="anonymous"
+    ></script>
+    {{! <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script> }}
+
+    {{! <script src="/js/button.js"></script> }}
+
+  {{#if loggedIn}}
+  <script src="/js/logout.js"></script>
+  {{/if}}
+
+  </body>
 </html>
