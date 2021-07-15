@@ -22,6 +22,32 @@ router.get("/", async (req, res) => {
   }
 });
 
+//1post
+router.get('/post/:id', async (req, res) => {
+  try {
+    console.dir(req.params.id)
+    const dbPostData = await Post.findByPk(req.params.id, {
+      include: [{all: true}
+        // User,
+        // {
+        //   model: Comment,
+        //   include:[User]
+        // }
+      ]
+    } )
+
+    if (dbPostData) {
+      const post = dbPostData.get({ plain: true})
+      res.render('one-post', {post 
+        //, loggedIn: req.session.loggedIn
+      })
+      
+    }else{res.status(404).json({message: 'Post-ID Not Found'}).end()}
+  } catch (err) {
+    console.dir(err)
+    res.status(500).json(err)
+  }
+})
 
 
 // // GET one picture
@@ -58,10 +84,21 @@ router.get("/", async (req, res) => {
 //   }
 // });
 
-// // Login route
-// router.get("/login", (req, res) => {
-//   res.render("login");
-// });
+// Login route
+router.get("/login", (req, res) => {
+  res.render("login");
+});
+
+// dashboard
+router.get('/dashboard', async (req, res) => {
+  try{
+    const dbPostData = await Post.findAll({
+      where: { user_id: req.session.userId },
+    })
+    const post = dbPostData.map((postData) => post.get({plain: true}))
+    res.render('homepage', {post})
+  }catch (err){res.redirect('login')}
+})
 
 module.exports = router;
 
