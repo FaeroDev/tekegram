@@ -14,7 +14,7 @@ router.get("/", async (req, res) => {
 
     res.render("homepage", {
       post,
-      // loggedIn: req.session.loggedIn,
+      loggedIn: req.session.loggedIn,
     });
   } catch (err) {
     console.log(err);
@@ -93,11 +93,14 @@ router.get("/login", (req, res) => {
 router.get('/dashboard', async (req, res) => {
   try{
     const dbPostData = await Post.findAll({
-      where: { user_id: req.session.userId },
+      where: { user_id: req.session.user_id },
+      include: [{ all: true}]
     })
-    const post = dbPostData.map((postData) => post.get({plain: true}))
-    res.render('homepage', {post})
-  }catch (err){res.redirect('login')}
+    const post = dbPostData.map((post) => post.get({plain: true}))
+    res.render('homepage', {post, loggedIn: req.session.loggedIn})
+  }catch (err)
+  {console.dir(err)
+  res.redirect('login')}
 })
 
 module.exports = router;
