@@ -97,7 +97,7 @@ router.get('/dashboard', async (req, res) => {
       include: [{ all: true}]
     })
     const post = dbPostData.map((post) => post.get({plain: true}))
-    res.render('homepage', {post, loggedIn: req.session.loggedIn})
+    res.render('dashboard', {post, loggedIn: req.session.loggedIn})
   }catch (err)
   {console.dir(err)
   res.redirect('login')}

@@ -19,7 +19,7 @@
 
     <nav class="navbar navbar-expand-md navbar-light bg-secondary">
       <div class="container-fluid">
-        <a class="navbar-brand" href="#">TEKEGRAM</a>
+        <a class="navbar-brand" href="/">TEKEGRAM</a>
         <button
           class="navbar-toggler"
           type="button"
@@ -37,28 +37,43 @@
               <a id="homeBtn"class="nav-link active" aria-current="page" href="/">Home</a>
             </li>
             {{#if loggedIn}}
+                        <li class="nav-item">
+              <a class="nav-link" href="/dashboard">Dashboard</a>
+            </li>
             <li class="nav-item">
               <a class="nav-link" href="/" id="logout-btn">Logout</a>
-              <a class="nav-link" href="/dashboard">Dashboard</a>
-
+            </li>
+             <li class="nav-item">
+            <p class="nav-link bg-success"><strong>LOGGEDIN</strong></p>
             </li>
             {{else}}
             
-                        <li class="nav-item">
+              <li class="nav-item">
               <a class="nav-link" href="/login">Login</a>
-                      <a class="nav-link" href="/dashboard">Dashboard</a> 
+                      {{!-- <a class="nav-link" href="/dashboard">Dashboard</a>  --}}
                       {{!-- above line is ytemporary --}}
-
+              </li>
+            {{!-- <li class="nav-item">
+              <a class="nav-link" href="/dashboard">Dashboard</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/" id="logout-btn">Logout</a>
+            </li> --}}
+             <li class="nav-item">
+            <p class="nav-link bg-danger"><strong>LOGGEDOUT</strong></p>
             </li>
 
+
             {{/if}}
-                      {{#if loggedIn}}
+                      {{!-- {{#if loggedIn}}
+            <li class="nav-item">
             <p><strong>LOGGEDIN</strong></p>
+            </li>
 
             {{else}}
             <p><strong>LOGGEDOUT</strong></p>
             {{/if}}
-
+ --}}
           </ul>
           <!-- <form class="d-flex">
             <input

@@ -5,7 +5,7 @@ const tempPosts =[
     {
       "title": "Music Near Me",
       "body": "A mobile app that will send you notifications whenever a concert is playing in your area.",
-      "user_id": 1
+      "user_id": 4
     },
     {
       "title": "The Ultimate Tech Quiz",

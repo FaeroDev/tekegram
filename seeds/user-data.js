@@ -30,6 +30,11 @@ const loginData = [
       username: "steve",
       password: "password",
       email: "steve@gmail.com",
+  },
+  {
+    username: "pharaohnof",
+    password: "$2a$10$2sW9wjE0ZNwnfn//k6ppxekgii9vynF9fLitRc8ZpyU1YJfdV0j6m",
+    email: "pharaohnof@gmail.com"
   }
 ];
 
