@@ -1,3 +1,3 @@
-drop database if exists tekegram_db;
+-- drop database if exists tekegram_db;
 
-create database tekegram_db;
+-- create database tekegram_db;
