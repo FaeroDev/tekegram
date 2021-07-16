@@ -1,6 +1,24 @@
 const router = require('express').Router();
 const {Post, User, Comment} = require('../../models')
 
+router.post("/new", async (req, res) => {
+  try {
+    const newpostData = await Post.create({
+      title:req.body.title,
+      body:req.body.body,
+      user_id: req.session.user_id
+    })
+    console.dir(newpostData)
+    res.json(newpostData);
+  }catch (err) {
+    console.error(err);
+    res.status(500).json(err);
+
+  }
+})
+
+
+
 router.get('/', async (req, res) => {
   await Post.findAll({
     // attributes: ["id", "title", "body"],
@@ -55,28 +73,36 @@ router.get("/:id", async (req, res) => {
 
   router.post("/", async (req, res) => {
     try {
-      const postData = await Post.create(req.body)
-        .then((post) => {
-          // if there's product tags, we need to create pairings to bulk create in the ProductTag model
-        //   if (req.body.tagIds.length) {
-        //     const productTagIdArr = req.body.tagIds.map((tag_id) => {
-        //       return {
-        //         product_id: product.id,
-        //         tag_id,
-        //       };
-        //     });
-        //     return ProductTag.bulkCreate(productTagIdArr);
-        //   }
-          // if no product tags, just respond
-          res.status(200).json(post);
-        })
-        // .then((productTagIds) => res.status(200).json(productTagIds))
-        .catch((err) => {
-          console.log(err);
-          res.status(400).json(err);
-        });
+      const newpostData = await Post.create({
+        title:req.body.title,
+        body:req.body.body,
+        user_id: req.session.user_id
+      })
+      console.dir(newpostData)
+      res.json(newpostData);
+    }catch (err) {
+      console.error(err);
+      res.status(500).json(err);
+
+    }
+  })
+
+
+  router.delete("/:id", async (req, res) => {
+    // delete one product by its `id` value
+    try {
+      const postData = await Post.destroy({
+        where: { id: req.params.id },
+      });
+  
+      if (!postData) {
+        res.status(404).json({ message: "No Post found with this id!" });
+        return;
+      }
+  
+      res.status(200).json(postData);
     } catch (err) {
-      res.status(400).json(err);
+      res.status(500).json(err);
     }
   });
   

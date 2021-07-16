@@ -103,5 +103,19 @@ router.get('/dashboard', async (req, res) => {
   res.redirect('login')}
 })
 
+router.get('/new', async (req, res) => {
+  try {
+    // const dbPostData = await Post.findAll({
+    //   where: { user_id: req.session.user_id },
+    //   // include: [{ all: true}]
+    // })
+    res.render('newpost', {loggedIn: req.session.loggedIn})
+
+
+  } catch (err) {
+    
+  }
+})
+
 module.exports = router;
 
