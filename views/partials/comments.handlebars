@@ -1,0 +1,13 @@
+<div class="comments">
+    {{#if this}}
+    <hr size="10">
+    <h3 class="text-center">Comments</h3>
+    <div class="text-center">{{#each this}}
+    <hr size="10"> 
+    {{text}}
+    {{user.username}}
+    {{/each}}
+    </div>
+
+    {{/if}}
+</div>

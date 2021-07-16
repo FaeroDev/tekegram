@@ -25,7 +25,7 @@ router.get("/", async (req, res) => {
 //1post
 router.get('/post/:id', async (req, res) => {
   try {
-    console.dir(req.params.id)
+    // console.dir(req.params.id)
     const dbPostData = await Post.findByPk(req.params.id, {
       include: [{all: true}
         // User,

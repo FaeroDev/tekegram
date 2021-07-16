@@ -1,20 +1,21 @@
 const router = require('express').Router();
 const {Comment} = require('../../models')
 
-router.get('/', async (req, res) => {
-    try {
-        const commentData = await Comment.findAll({})
-        res.json(commentData)
-    } catch (err) {
-        console.dir(err)
-        res.status(500).json(err)
+// router.get('/', async (req, res) => {
+//     try {
+//         const commentData = await Comment.findAll({})
+//         res.json(commentData)
+//     } catch (err) {
+//         console.dir(err)
+//         res.status(500).json(err)
 
-    }
-})
+//     }
+// })
 
 
 router.post('/', async (req, res) => {
     try {
+        console.dir(req.params.id)
         const commentData = await Comment.create({
             text: req.body.text,
             post_id: req.body.post_id,
@@ -23,7 +24,7 @@ router.post('/', async (req, res) => {
         res.json(commentData)
 
     } catch (err) {
-        console.dir(err)
+        // console.dir(err)
         res.status(500).json(err)
     }
 

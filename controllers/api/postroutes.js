@@ -5,18 +5,18 @@ router.get('/', async (req, res) => {
   await Post.findAll({
     // attributes: ["id", "title", "body"],
     include: [
-      {all: true}
-      //   model: Comment,
-      //   attributes: ["id", "text", "post_id", "user_id"],
-      //   include: {
-      //     model: User,
-      //     attributes: ["username"],
-      //   },
-      // },
-      // {
-      //   model: User,
-      //   attributes: ["username"],
-      // },
+      {
+        model: Comment,
+        attributes: ["id", "text", "post_id", "user_id"],
+        include: {
+          model: User,
+          attributes: ["username"],
+        },
+      },
+      {
+        model: User,
+        attributes: ["username"],
+      },
     ],
   })
   .then((dbPostData) => {

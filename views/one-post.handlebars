@@ -16,15 +16,16 @@
     {{>post-details post}}
     {{#if loggedIn}}
     <form class="comment-form text-center">
+      {{!-- <div>{{post.id}}</div> --}}
       <div id="comment-input">
-        <textarea name="comment-body"></textarea>
+        <textarea name="comment-body" data-postId = "{{post.id}}"></textarea>
       </div>
 
       <div id="comment-submit">
-        <button type="submit">Comment</button>
+        <button type="submit" data-postId="{{post.id}}">Comment</button>
       </div>
     </form>
-    {{> comments post.comments}}
+    <span>{{> comments post.comments}}</span>
     <script src="/js/comment.js"></script>
     {{/if}}
   </row>
