@@ -5,6 +5,8 @@
 ***
 
   TEKeGram is a retro style blog post web application. The simple interface allows you to make posts on a blog like website. Each post is visible and other users can comment.
+
+  ![TEKEGRAM](./Capture.PNG)
   
   ## Table Of Contents  
 
