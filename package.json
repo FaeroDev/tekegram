@@ -11,14 +11,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/pharaohnof/tekegram.git"
+    "url": "git+https://github.com/FaeroDev/tekegram.git"
   },
-  "author": "pharaohnof",
+  "author": "FaeroDev",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/pharaohnof/tekegram/issues"
+    "url": "https://github.com/FaeroDev/tekegram/issues"
   },
-  "homepage": "https://github.com/pharaohnof/tekegram#readme",
+  "homepage": "https://github.com/FaeroDev/tekegram#readme",
   "devDependencies": {
     "nodemon": "^2.0.12"
   },
