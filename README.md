@@ -25,7 +25,7 @@
 ***
 
   ### Clone the repository: 
-    git clone git@github.com:pharaohnof/tekegram.git  
+    git clone git@github.com:FaeroDev/tekegram.git  
       
   ### Dependencies:  
   The following dependencies are required for use:  
@@ -53,7 +53,7 @@ Live site is hosted at https://tekegram.herokuapp.com/
   ##  Contribution Guidelines  
 
 ***
-If you would like to contribute to this project, please [add me on GitHub](https://github.com/pharaohnof)   
+If you would like to contribute to this project, please [add me on GitHub](https://github.com/FaeroDev)   
   
     
   ##  Testing Instructions  
@@ -77,6 +77,6 @@ If you would like to contribute to this project, please [add me on GitHub](https
   If you have any questions regarding this application you can reach me using the below contact information:  
   ### Contact Info  
     
-  GitHub: [pharaohnof](https://github.com/pharaohnof)
+  GitHub: [FaeroDev](https://github.com/FaeroDev)
 
-  Email:  pharaohnof.software@gmail.com
+  Email:  FaeroDev@gmail.com
